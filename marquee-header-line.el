@@ -20,7 +20,10 @@
 
 ;;; Code:
 
-
+(defun marquee (text)
+  "Print TEXT at header line."
+  (setq header-line-format
+        text))
 
 (provide 'marquee-header-line)
 
