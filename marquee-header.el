@@ -1,4 +1,4 @@
-;;; marquee-header-line.el --- Summary
+;;; marquee-header.el --- Summary
 ;; Author: grugrut <grugruglut+github@gmail.com>
 ;; URL:
 ;; Version: 1.00
@@ -21,10 +21,15 @@
 ;;; Code:
 
 (defun marquee (text)
-  "Print TEXT at header line."
+  "Print TEXT at header."
   (setq header-line-format
-        text))
+        text)
+  (let ((buffer (get-buffer-create "*marquee*")))
+    (split-window (frame-root-window) 1)
+    (with-current-buffer buffer
+      (setq mode-line-format nil)
+      )))
 
-(provide 'marquee-header-line)
+(provide 'marquee-header)
 
-;;; marquee-header-line.el ends here
+;;; marquee-header.el ends here
